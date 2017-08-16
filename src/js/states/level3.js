@@ -5,8 +5,8 @@ const SimplePiece = require('../puzzles/simplePiece.js'),
       TetrisRightPiece = require('../puzzles/pieceTetrisRight.js'),
       TetrisLeftPiece = require('../puzzles/pieceTetrisLeft.js'),
       LittleIPiece = require('../puzzles/pieceLittleI.js'),
-      enableDragging = require('../puzzles/dragging.js'),
-      BoardBuilder = require('../puzzles/boardBuilder.js');
+      enableDragging = require('../utils/dragging.js'),
+      BoardBuilder = require('../board/boardBuilder.js');
 
 class Level_3 {
 

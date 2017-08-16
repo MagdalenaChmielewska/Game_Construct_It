@@ -1,5 +1,5 @@
-const Board = require('./board.js'),
-      SimplePiece = require('./simplePiece.js'),
+const Board = require('../board/board.js'),
+      SimplePiece = require('../puzzles/simplePiece.js'),
       Win = require('../states/win.js');
 
 function enableDragging(game, level, piece, board) {

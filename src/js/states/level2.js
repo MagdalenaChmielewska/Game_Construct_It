@@ -2,8 +2,8 @@ const SimplePiece = require('../puzzles/simplePiece.js'),
       lPiece = require('../puzzles/pieceLittlel.js'),
       IPiece = require('../puzzles/pieceI.js'),
       CPiece = require('../puzzles/pieceC.js'),
-      enableDragging = require('../puzzles/dragging.js'),
-      BoardBuilder = require('../puzzles/boardBuilder.js');
+      enableDragging = require('../utils/dragging.js'),
+      BoardBuilder = require('../board/boardBuilder.js');
 
 class Level_2 {
 

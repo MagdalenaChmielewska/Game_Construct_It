@@ -1,5 +1,5 @@
 const Board = require('./board.js'),
-      SimplePiece = require('./simplePiece.js');
+      SimplePiece = require('../puzzles/simplePiece.js');
 
 class BoardBuilder {
 
