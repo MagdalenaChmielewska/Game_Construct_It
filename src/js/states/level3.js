@@ -2,8 +2,8 @@ const SimplePiece = require('../puzzles/simplePiece.js'),
       LittleLPiece = require('../puzzles/pieceLittlel.js'),
       LeftDownLPiece = require('../puzzles/pieceLeftDownL.js'),
       LeftUpLPiece = require('../puzzles/pieceLeftUpL.js'),
-      TetrrisRightPiece = require('../puzzles/pieceTetrrisRight.js'),
-      TetrrisLeftPiece = require('../puzzles/pieceTetrrisLeft.js'),
+      TetrisRightPiece = require('../puzzles/pieceTetrisRight.js'),
+      TetrisLeftPiece = require('../puzzles/pieceTetrisLeft.js'),
       LittleIPiece = require('../puzzles/pieceLittleI.js'),
       enableDragging = require('../puzzles/dragging.js'),
       BoardBuilder = require('../puzzles/boardBuilder.js');
@@ -60,13 +60,13 @@ class Level_3 {
         let piece3 = new LeftUpLPiece(this.game, "blockGreen", {x: 320, y: 160});
         enableDragging(this.game, 3, piece3, board); 
 
-        let piece4 = new TetrrisRightPiece(this.game, "blockOrange", {x: 440, y: 160});
+        let piece4 = new TetrisRightPiece(this.game, "blockOrange", {x: 440, y: 160});
         enableDragging(this.game, 3, piece4, board); 
 
-        let piece5 = new TetrrisRightPiece(this.game, "blockYellow", {x: 560, y: 160});
+        let piece5 = new TetrisRightPiece(this.game, "blockYellow", {x: 560, y: 160});
         enableDragging(this.game, 3, piece5, board); 
 
-        let piece6 = new TetrrisLeftPiece(this.game, "blockWhite", {x: 720, y: 160});
+        let piece6 = new TetrisLeftPiece(this.game, "blockWhite", {x: 720, y: 160});
         enableDragging(this.game, 3, piece6, board); 
 
         let piece7 = new LittleIPiece(this.game, "blockWhite", {x: 240, y: 160});

@@ -1,6 +1,6 @@
 const SimplePiece = require('./simplePiece.js');
 
-class TetrrisLeftPiece {    
+class TetrisRightPiece {    
 
     constructor(game, spriteName, position) {
         this.piece = new SimplePiece(game, spriteName, {x: position.x, y: position.y});
@@ -8,7 +8,7 @@ class TetrrisLeftPiece {
 
         let piece2 = new SimplePiece(game, spriteName, {x: 0, y: pieceLength}),
             piece3 = new SimplePiece(game, spriteName, {x: 0, y: 2 * pieceLength}),
-            piece4 = new SimplePiece(game, spriteName, {x: -pieceLength, y: pieceLength});
+            piece4 = new SimplePiece(game, spriteName, {x: pieceLength, y: pieceLength});
 
         this.piece.addChildren([piece2, piece3, piece4]);
     }
@@ -22,4 +22,4 @@ class TetrrisLeftPiece {
     }
 };
 
-module.exports = TetrrisLeftPiece;
+module.exports = TetrisRightPiece;
