@@ -1,6 +1,6 @@
 const Board = require('../board/board.js'),
-      SimplePiece = require('../puzzles/simplePiece.js'),
-      Win = require('../states/win.js');
+      StepsCounter = require("../utils/StepsCounter.js"),
+      Winner_screen = require('../states/Winner_screen.js');
 
 function enableDragging(game, level, piece, board) {
     let sprite = piece.getSprite();
@@ -16,9 +16,8 @@ function enableDragging(game, level, piece, board) {
                 board.piecesAlreadyOnBoard.forEach((singlePiece) => {
                     singlePiece.inputEnabled = false;
                 });
-                new Win(game, level);
+                new Winner_screen(game, level);
             }
-            console.log("Wynik: " + result);
         }, 
         sprite
     );
@@ -30,6 +29,8 @@ function stopDrag(currentPiece, board) {
         currentPieceSprites = currentPieceSpriteChildren.concat(currentPieceSprite);
 
     let arePiecesInValidPositions = board.tryPutPiecesOnPositions(currentPieceSprites);
+
+    StepsCounter.increment();
 
     if (!arePiecesInValidPositions) {
         currentPiece.resetPosition();

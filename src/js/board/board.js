@@ -1,3 +1,5 @@
+const MinimumDistance = 20;
+
 class Board {
 
     constructor(game, boardElements) {
@@ -10,27 +12,35 @@ class Board {
         return this.boardElements;
     }
 
-    isPlaceEmpty(boardElement) {
+    calculateDistanceBetween(boardElement, piece) {
+        let boardWorld = boardElement.getSprite().world,
+            piecePositionX = piece.world.x,
+            piecePositionY = piece.world.y;
+        let distance = this.game.physics.arcade.distanceToXY(boardWorld, piecePositionX, piecePositionY);
+        return distance;
+    }
+
+    isEmptyBoardElement(boardElement, pieceToPlace) {
         let result = this.piecesAlreadyOnBoard.find((pieceOnBoard) => { 
-                let dist = this.game.physics.arcade.distanceToXY(boardElement.getSprite().world, pieceOnBoard.world.x, pieceOnBoard.world.y);
-                return dist < 20;
+                let distance = this.calculateDistanceBetween(boardElement, pieceOnBoard);
+                return distance < MinimumDistance && pieceToPlace != pieceOnBoard;
             }
         )
-
+        
         return (this.piecesAlreadyOnBoard.length == 0 || (result === undefined));
     }
 
     tryPutPiecesOnPositions(spritesToCheck) {
         let boardElementsToPlacePieces = spritesToCheck.map((spriteToCheck) => {
             let boardElementToPlacePiece = this.boardElements.find((boardElement) => {
-                let dist = this.game.physics.arcade.distanceToXY(boardElement.getSprite().world, spriteToCheck.world.x, spriteToCheck.world.y);
-                return dist < 20 && this.isPlaceEmpty(boardElement);
+                let distance = this.calculateDistanceBetween(boardElement, spriteToCheck);
+                return distance < MinimumDistance && this.isEmptyBoardElement(boardElement, spriteToCheck);
             });
             return boardElementToPlacePiece;
         }).filter((x) => { return x !== undefined} );
 
-        let result = (boardElementsToPlacePieces.length == spritesToCheck.length);
-        if (result) {
+        let shouldPutPieceOnBoard = (boardElementsToPlacePieces.length == spritesToCheck.length);
+        if (shouldPutPieceOnBoard) {
             // put pieces on board
             spritesToCheck.forEach(spriteToCheck => {
                 let index = this.piecesAlreadyOnBoard.indexOf(spriteToCheck);
@@ -49,7 +59,8 @@ class Board {
                 }
             })
         }
-        return result;
+
+        return shouldPutPieceOnBoard;
     }
 
     isBoardFull() {

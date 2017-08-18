@@ -1,12 +1,12 @@
-const SimplePiece = require('./simplePiece.js');
+const PieceSimple = require('./PieceSimple.js');
 
-class LittleIPiece {    
+class PieceLittleI {    
 
     constructor(game, spriteName, position) {
-        this.piece = new SimplePiece(game, spriteName, {x: position.x, y: position.y});
+        this.piece = new PieceSimple(game, spriteName, {x: position.x, y: position.y});
         let pieceLength = this.piece.getLength();
 
-        let piece2 = new SimplePiece(game, spriteName, {x: 0, y: pieceLength});
+        let piece2 = new PieceSimple(game, spriteName, {x: 0, y: pieceLength});
 
         this.piece.addChildren([piece2]);
     }
@@ -20,4 +20,4 @@ class LittleIPiece {
     }
 };
 
-module.exports = LittleIPiece;
+module.exports = PieceLittleI;

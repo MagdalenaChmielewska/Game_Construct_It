@@ -1,4 +1,4 @@
-class SimplePiece {
+class PieceSimple {
 
     constructor(game, spriteName, position) {
         this.sprite = game.add.sprite(0, 0, spriteName);
@@ -27,4 +27,4 @@ class SimplePiece {
     
 };
 
-module.exports = SimplePiece;
+module.exports = PieceSimple;

@@ -1,5 +1,5 @@
 const Board = require('./board.js'),
-      SimplePiece = require('../puzzles/simplePiece.js');
+      PieceSimple = require('../puzzles/PieceSimple.js');
 
 class BoardBuilder {
 
@@ -7,7 +7,7 @@ class BoardBuilder {
         this.game = game;
         this.spiritName = spriteName;
 
-        this.lastPiece = new SimplePiece(game, spriteName, {x: position.x, y: position.y});
+        this.lastPiece = new PieceSimple(game, spriteName, {x: position.x, y: position.y});
         this.board = new Board(this.game, [this.lastPiece]);
     }
 
@@ -54,7 +54,7 @@ class BoardBuilder {
     }
 
     addPiece(newPosition) {
-        this.lastPiece = new SimplePiece(this.game, this.spiritName, {x: newPosition.x, y: newPosition.y})
+        this.lastPiece = new PieceSimple(this.game, this.spiritName, {x: newPosition.x, y: newPosition.y})
 
         let boardElements = this.board.getBoardElements();
         this.board = new Board(this.game, boardElements.concat(this.lastPiece));

@@ -18,7 +18,7 @@ class Load_state {
         this.game.load.image('menuBg', 'images/sky2.png');  
         this.game.load.image('levelsBg', 'images/sky3.png');  
         this.game.load.image('levelBg', 'images/sky.png');  
-        this.game.load.image('win', 'images/score.png'); 
+        this.game.load.image('winScreen', 'images/score.png'); 
     }
 
     create() {
